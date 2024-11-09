@@ -47,7 +47,6 @@ let score = 0;  // score 변수 초기화 (0으로 설정)
 const datas = {
     score: score,   // score 변수를 datas 객체 안에 포함
     message: ""     // 초기값으로 빈 문자열 할당
-    time_stamp: Date.now() 
 };
 // 복호화 함수
 async function serversenddataclear() {
