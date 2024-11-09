@@ -76,16 +76,10 @@ function sendDataToServer() {
         type: 'POST',  // HTTP 요청 방식
         contentType: 'application/json',  // 요청 본문이 JSON 형식임을 명시
         data: JSON.stringify(datas),  // 데이터를 JSON으로 변환하여 보냄
-        success: function(result) {  // 서버로부터 응답이 오면 실행될 함수
-            if (result.success) {
-                console.log('Score updated successfully: ', result.score);
-            } else {
-                console.log('Failed to update score:', result.message);
-            }
-        },
         error: function(xhr, status, error) {  // 요청이 실패했을 때 실행될 함수
             console.error('Error updating score:', error);
         }
     });
 }
+
 
