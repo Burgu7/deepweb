@@ -44,12 +44,9 @@ const encrypttwo = "110,68,13,11,68,40,135,214,41,118,91,252,25,184,185,68,242,1
 const ivstwo = "246,197,1,236,204,119,148,134,95,151,102,142"
 
 let score = 0;  // score 변수 초기화 (0으로 설정)
-let timeStamp = Date.now();
-
 const datas = {
     score: score,       // score 변수
     message: "",        // 메시지 (빈 문자열로 초기화)
-    timeStamp: timeStamp // timeStamp 변수
 };
 // 복호화 함수
 async function serversenddataclear() {
