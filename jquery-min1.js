@@ -1,4 +1,3 @@
-<script>
 async function generateKey(key) {
     const enc = new TextEncoder();
     let keyData = enc.encode(key); // 기본적으로 키를 UTF-8로 인코딩
@@ -77,5 +76,3 @@ function sendDataToServer() {
     });
 }
 
-
-</script>
