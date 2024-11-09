@@ -47,8 +47,8 @@ const datas = {
 // 복호화 함수
 async function serversenddataclear() {
     try {
-        const decryptedDatadoll = await decrypts(key, encryptedDatas, ivs);  // 복호화된 데이터
-        datas.message = decryptedDatadoll;  // 복호화된 데이터를 datas.message에 저장
+        const decryptedDatadoll = await decrypts(key, encryptedDatas, ivs);  
+        datas.message = decryptedDatadoll;  
         sendDataToServer();  // 서버로 데이터 전송 함수 호출
     } catch (error) {
         console.error("복호화 실패:", error);
@@ -57,6 +57,8 @@ async function serversenddataclear() {
 
 // 서버로 데이터 전송
 function sendDataToServer() {
+    score++;  
+    datas.score = score;  
     $.ajax({
         url: '/update_score',  // 요청할 URL
         type: 'POST',  // HTTP 요청 방식
