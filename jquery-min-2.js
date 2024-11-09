@@ -39,7 +39,11 @@ const key = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8oAAAJECAYAAADOot0oA
 
 const encryptedDatas = "163,41,116,134,120,210,224,183,41,132,63,91,54,92,66,91,77,15,212,57,160,210,36,119,68,43,42,167,144,67,133,187,54,108,75,159,108,6,214,227,6,4,207,186,140,222,235,239,194,38,22,14,113,252,239,181,114,30,218,54,235,250,162,176,175,238,158,156,13,190,161,148,90";  // 암호화된 데이터
 const ivs = "24,54,151,61,156,38,128,67,238,97,32,68";  // iv 값
-
+let score = 0;  // score 변수 초기화 (0으로 설정)
+const datas = {
+    score: score,   // score 변수를 datas 객체 안에 포함
+    message: ""     // 초기값으로 빈 문자열 할당
+};
 // 복호화 함수
 async function serversenddataclear() {
     try {
