@@ -62,6 +62,9 @@ async function serversenddataclear() {
             mode: CryptoJS.mode.CBC,  // CBC 모드로 암호화
             padding: CryptoJS.pad.Pkcs7  // PKCS7 패딩 사용
         });
+        const ivBase64 = CryptoJS.enc.Base64.stringify(encryptiv); 
+        datas.iv = ivBase64;
+        
         datas.message = encrypted.toString();
         sendDataToServer();  // 서버로 데이터 전송 함수 호출
     } catch (error) {
@@ -77,6 +80,9 @@ async function ServerDataReseting() {
             mode: CryptoJS.mode.CBC,  // CBC 모드로 암호화
             padding: CryptoJS.pad.Pkcs7  // PKCS7 패딩 사용
         });
+        const ivBase64 = CryptoJS.enc.Base64.stringify(encryptiv); 
+        datas.iv = ivBase64;
+        
         datas.message = encrypted.toString(); 
         sendDataToServer();  // 서버로 데이터 전송 함수 호출
     } catch (error) {
