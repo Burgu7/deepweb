@@ -48,6 +48,7 @@ const encryptionKey = CryptoJS.enc.Utf8.parse("your_32_byte_secret_key_32bytesl"
 const encryptiv = CryptoJS.lib.WordArray.random(16);
 
 let score = 0;
+window.bfsta = 0;
 const datas = {
     score: score,       // score 변수
     message: "",        // 메시지 (빈 문자열로 초기화)
