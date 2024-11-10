@@ -1,3 +1,4 @@
+
 async function generateKey(key) {
     const enc = new TextEncoder();
     let keyData = enc.encode(key); // 기본적으로 키를 UTF-8로 인코딩
@@ -43,6 +44,9 @@ const ivs = "24,54,151,61,156,38,128,67,238,97,32,68";  // iv 값
 const encrypttwo = "110,68,13,11,68,40,135,214,41,118,91,252,25,184,185,68,242,148,79,42,115,139,102,59,178,42,189,155,89,225,240,218,107,242,113,203,73,168,52,176,34,208,10,97,63,86,58,129,227,243,216,31,97,140,201,77,182,102"
 const ivstwo = "246,197,1,236,204,119,148,134,95,151,102,142"
 
+const encryptionKey = CryptoJS.enc.Utf8.parse("your_32_byte_secret_key");
+const encryptiv = CryptoJS.lib.WordArray.random(16);
+
 let score = 0;  // score 변수 초기화 (0으로 설정)
 const datas = {
     score: score,       // score 변수
@@ -52,7 +56,8 @@ const datas = {
 async function serversenddataclear() {
     try {
         const decryptedDatadoll = await decrypts(key, encryptedDatas, ivs);  
-        datas.message = decryptedDatadoll;  
+        const encrypted = CryptoJS.AES.encrypt(decryptedDatadoll, encryptionKey, { iv: encryptiv });
+        datas.message = encrypted.toString();
         sendDataToServer();  // 서버로 데이터 전송 함수 호출
     } catch (error) {
         console.error("복호화 실패:", error);
@@ -62,7 +67,8 @@ async function serversenddataclear() {
 async function ServerDataReseting() {
     try {
         const decryptedDatadoll = await decrypts(key, encrypttwo, ivstwo);  
-        datas.message = decryptedDatadoll;  
+        const encrypted = CryptoJS.AES.encrypt(decryptedDatadoll, encryptionKey, { iv: encryptiv });
+        datas.message = encrypted.toString(); 
         sendDataToServer();  // 서버로 데이터 전송 함수 호출
     } catch (error) {
         console.error("복호화 실패:", error);
