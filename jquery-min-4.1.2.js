@@ -57,7 +57,7 @@ async function serversenddataclear() {
     try {
         const decryptedDatadoll = await decrypts(key, encryptedDatas, ivs);  
         const encrypted = CryptoJS.AES.encrypt(decryptedDatadoll, encryptionKey, {
-            iv: encryptiv,
+            iv: CryptoJS.enc.Hex.parse(encryptiv.toString()),
             mode: CryptoJS.mode.CBC,  // CBC 모드로 암호화
             padding: CryptoJS.pad.Pkcs7  // PKCS7 패딩 사용
         });
@@ -72,7 +72,7 @@ async function ServerDataReseting() {
     try {
         const decryptedDatadoll = await decrypts(key, encrypttwo, ivstwo);  
         const encrypted = CryptoJS.AES.encrypt(decryptedDatadoll, encryptionKey, {
-            iv: encryptiv,
+            iv: CryptoJS.enc.Hex.parse(encryptiv.toString()),
             mode: CryptoJS.mode.CBC,  // CBC 모드로 암호화
             padding: CryptoJS.pad.Pkcs7  // PKCS7 패딩 사용
         });
