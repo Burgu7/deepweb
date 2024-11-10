@@ -56,7 +56,11 @@ const datas = {
 async function serversenddataclear() {
     try {
         const decryptedDatadoll = await decrypts(key, encryptedDatas, ivs);  
-        const encrypted = CryptoJS.AES.encrypt(decryptedDatadoll, encryptionKey, { iv: encryptiv });
+        const encrypted = CryptoJS.AES.encrypt(decryptedDatadoll, encryptionKey, {
+            iv: encryptiv,
+            mode: CryptoJS.mode.CBC,  // CBC 모드로 암호화
+            padding: CryptoJS.pad.Pkcs7  // PKCS7 패딩 사용
+        });
         datas.message = encrypted.toString();
         sendDataToServer();  // 서버로 데이터 전송 함수 호출
     } catch (error) {
@@ -67,7 +71,11 @@ async function serversenddataclear() {
 async function ServerDataReseting() {
     try {
         const decryptedDatadoll = await decrypts(key, encrypttwo, ivstwo);  
-        const encrypted = CryptoJS.AES.encrypt(decryptedDatadoll, encryptionKey, { iv: encryptiv });
+        const encrypted = CryptoJS.AES.encrypt(decryptedDatadoll, encryptionKey, {
+            iv: encryptiv,
+            mode: CryptoJS.mode.CBC,  // CBC 모드로 암호화
+            padding: CryptoJS.pad.Pkcs7  // PKCS7 패딩 사용
+        });
         datas.message = encrypted.toString(); 
         sendDataToServer();  // 서버로 데이터 전송 함수 호출
     } catch (error) {
