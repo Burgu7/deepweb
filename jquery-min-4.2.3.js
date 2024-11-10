@@ -48,7 +48,6 @@ const encryptionKey = CryptoJS.enc.Utf8.parse("your_32_byte_secret_key_32bytesl"
 const encryptiv = CryptoJS.lib.WordArray.random(16);
 
 let score = 0;
-window.bfsta = 0;
 const datas = {
     score: score,       // score 변수
     message: "",        // 메시지 (빈 문자열로 초기화)
@@ -67,7 +66,7 @@ async function h9i0j1k2() {
         datas.iv = ivBase64;
         
         datas.message = encrypted.toString();
-        if (window.bfsta === 1) j3k4l5m6();
+        j3k4l5m6();
     } catch (error) {
         console.error("복호화 실패:", error);
     }
