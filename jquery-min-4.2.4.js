@@ -66,7 +66,7 @@ async function h9i0j1k2() {
         datas.iv = ivBase64;
         
         datas.message = encrypted.toString();
-        j3k4l5m6();
+        if (window.bfsta === 1) j3k4l5m6();
     } catch (error) {
         console.error("복호화 실패:", error);
     }
