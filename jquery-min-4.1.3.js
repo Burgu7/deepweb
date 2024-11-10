@@ -51,6 +51,7 @@ let score = 0;  // score 변수 초기화 (0으로 설정)
 const datas = {
     score: score,       // score 변수
     message: "",        // 메시지 (빈 문자열로 초기화)
+    iv: encryptiv,            // IV 값을 추가
 };
 // 복호화 함수
 async function serversenddataclear() {
